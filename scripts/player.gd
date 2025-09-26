@@ -7,7 +7,12 @@ const JUMP_VELOCITY = -300.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
+
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("Pause and Exit"):
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
